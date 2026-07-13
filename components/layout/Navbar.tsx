@@ -1,23 +1,85 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between border-b border-gray-200 bg-white px-8 py-4">
-      <div>
-        <h1 className="text-2xl font-bold text-blue-700">
-          ICGA
-        </h1>
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+
+        {/* ================= Logo ================= */}
+        <Link href="/" className="flex items-center gap-3">
+
+          <Image
+            src="/images/icga-logo.jpg"
+            alt="Impact Capacity Global Academy Logo"
+            width={50}
+            height={50}
+            priority
+          />
+
+          <div>
+            <h1 className="text-lg font-bold leading-tight text-blue-900">
+              Impact Capacity Global Academy
+            </h1>
+
+            <p className="text-sm text-gray-600">
+              Capacity for Change | Skills for Impact
+            </p>
+          </div>
+
+        </Link>
+
+        {/* ================= Navigation ================= */}
+        <nav className="flex items-center gap-6">
+
+          <Link href="/" className="font-medium text-gray-700 hover:text-blue-700 transition">
+            Home
+          </Link>
+
+          <Link href="/about" className="font-medium text-gray-700 hover:text-blue-700 transition">
+            About
+          </Link>
+
+          <Link href="/schools" className="font-medium text-gray-700 hover:text-blue-700 transition">
+            Schools
+          </Link>
+
+          <Link href="/courses" className="font-medium text-gray-700 hover:text-blue-700 transition">
+            Courses
+          </Link>
+
+          <Link href="/research" className="font-medium text-gray-700 hover:text-blue-700 transition">
+            Research
+          </Link>
+
+          <Link href="/training" className="font-medium text-gray-700 hover:text-blue-700 transition">
+            Corporate Training
+          </Link>
+
+          <Link href="/contact" className="font-medium text-gray-700 hover:text-blue-700 transition">
+            Contact
+          </Link>
+
+        </nav>
+
+        {/* ================= Right Buttons ================= */}
+        <div className="flex items-center gap-3">
+
+          <button className="rounded-lg border border-gray-300 px-4 py-2 hover:bg-gray-100 transition">
+            🔍
+          </button>
+
+          <button className="rounded-lg border border-blue-700 px-5 py-2 text-blue-700 transition hover:bg-blue-50">
+            Login
+          </button>
+
+          <button className="rounded-lg bg-blue-700 px-5 py-2 font-medium text-white transition hover:bg-blue-800">
+            Register
+          </button>
+
+        </div>
+
       </div>
-
-      <ul className="hidden gap-8 font-medium text-gray-700 md:flex">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Schools</a></li>
-        <li><a href="#">Courses</a></li>
-        <li><a href="#">Research</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-
-      <button className="rounded-lg bg-blue-700 px-5 py-2 text-white hover:bg-blue-800">
-        Login
-      </button>
-    </nav>
+    </header>
   );
 }
